@@ -10,6 +10,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [answer, setAnswer] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -21,9 +22,11 @@ const Register = () => {
         password,
         phone,
         address,
+        answer,
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
+        alert(res.data && res.data.message);
         navigate("/login");
       } else {
         toast.error(res.data.message);
@@ -34,7 +37,7 @@ const Register = () => {
     }
   };
   return (
-    <Layout>
+    <Layout title="Register - Ecommer App">
       <section className="register_form">
         <div className="container">
           <form onSubmit={handleSubmit}>
@@ -92,6 +95,17 @@ const Register = () => {
                 className="form-control"
                 id="exampleInputEmail1"
                 placeholder="Enter Your Address"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="text"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+                className="form-control"
+                id="exampleInputEmail2"
+                placeholder="What is Your Favorite sports"
                 required
               />
             </div>
