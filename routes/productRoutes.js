@@ -4,6 +4,12 @@ import {
   createProductController,
   getProductController,
   getSingleProductController,
+  productPhotoController,
+  deleteProductController,
+  updateProductController,
+  productFiltersController,
+  productCountController,
+  productListController,
 } from "../controllers/productController.js";
 import formidable from "express-formidable";
 const router = express.Router();
@@ -22,5 +28,29 @@ router.get("/get-product", getProductController);
 
 //single product
 router.get("/get-product/:slug", getSingleProductController);
+
+//get photo
+router.get("/product-photo/:pid", productPhotoController);
+
+// update product
+router.put(
+  "/update-product/:pid",
+  requireSignIn,
+  isAdmin,
+  formidable(),
+  updateProductController
+);
+
+//delete rproduct
+router.delete("/delete-product/:pid", deleteProductController);
+
+//filter product
+router.post("/product-filters", productFiltersController);
+
+//product count
+router.get("/product-count", productCountController);
+
+//product per page
+router.get("/product-list/:page", productListController);
 
 export default router;

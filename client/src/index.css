@@ -60,6 +60,26 @@ section {
   background-color: black;
   color: white;
 }
+
+/* =============Create-Category=============== */
+.add-category {
+  position: relative;
+}
+.add-category button {
+  position: absolute;
+  top: 0;
+  right: 0px;
+}
+
+
+
+
+
+
+
+
+
+
 /* =============================
 ==========footer============= */
 
