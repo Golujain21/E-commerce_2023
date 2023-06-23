@@ -42,51 +42,53 @@ const Login = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <form>
-                <h4 className="title">LOGIN FORM</h4>
+              <div className="form-container ">
+                <form>
+                  <h4 className="title">LOGIN FORM</h4>
 
-                <div className="mb-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="form-control"
-                    id="exampleInputEmail1"
-                    placeholder="Enter Your Email "
-                    required
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Enter Your Password"
-                    required
-                  />
-                </div>
-                <div className="mb-3">
+                  <div className="mb-3">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="form-control"
+                      id="exampleInputEmail1"
+                      placeholder="Enter Your Email "
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="form-control"
+                      id="exampleInputPassword1"
+                      placeholder="Enter Your Password"
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={() => {
+                        navigate("/forgot-password");
+                      }}
+                    >
+                      Forgot Password
+                    </button>
+                  </div>
+
                   <button
-                    type="button"
+                    type="submit"
                     className="btn btn-primary"
-                    onClick={() => {
-                      navigate("/forgot-password");
-                    }}
+                    onClick={handleSubmit}
                   >
-                    Forgot Password
+                    LOGIN
                   </button>
-                </div>
-
-                <button
-                  type="submit"
-                  className="btn btn-primary"
-                  onClick={handleSubmit}
-                >
-                  LOGIN
-                </button>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>

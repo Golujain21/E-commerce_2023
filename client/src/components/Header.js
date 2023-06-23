@@ -2,8 +2,14 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/auth";
 import toast from "react-hot-toast";
+import SearchInput from "./Form/SearchInput";
+import useCategory from "../hooks/useCategory";
+import { useCart } from "../context/cart";
 const Header = () => {
+  // add to cart
+  const [cart] = useCart();
   const [auth, setAuth] = useAuth();
+  const categories = useCategory();
   const handleLogout = () => {
     setAuth({
       ...auth,
@@ -32,17 +38,46 @@ const Header = () => {
             <Link to="/" className="navbar-brand">
               🛒 Ecommerce App
             </Link>
+            <SearchInput />
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              {/* <SearchInput /> */}
               <li className="nav-item">
                 <NavLink to="/" className="nav-link ">
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink to="/category" className="nav-link ">
-                  Category
-                </NavLink>
+              <li className="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle"
+                  to={"/"}
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Categories
+                </Link>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <Link to={"/categories"} className="dropdown-item">
+                      All CATEGORIES
+                    </Link>
+                  </li>
+                  {categories?.map((c) => {
+                    return (
+                      <li>
+                        <Link
+                          to={`/category/${c.slug}`}
+                          className="dropdown-item"
+                        >
+                          {c.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
               </li>
+
               {!auth?.user ? (
                 <>
                   <li className="nav-item">
@@ -94,7 +129,7 @@ const Header = () => {
               )}
               <li className="nav-item">
                 <NavLink to="/cart" className="nav-link">
-                  Cart (0)
+                  Cart ({cart?.length})
                 </NavLink>
               </li>
             </ul>
