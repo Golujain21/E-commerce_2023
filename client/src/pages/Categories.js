@@ -8,13 +8,15 @@ const Categories = () => {
     <Layout title={"All Categories"}>
       <section className="section_all_category">
         <div className="container">
-          <h5 className="text-center">All Categories</h5>
+          <h5 className="text-center mb-3">All Categories</h5>
           <div className="row">
             {categories.map((c) => (
-              <div className="col-md-6 mt-5 mb-3 gx-3 gy-3" key={c._id}>
-                <Link to={`/category/${c.slug}`} className="btn btn-primary">
-                  {c.name}
-                </Link>
+              <div className="col-md-6 mb-3 " key={c._id}>
+                <div class="categoryies">
+                  <Link to={`/category/${c.slug}`} className="allcatgory">
+                    {c.name}
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

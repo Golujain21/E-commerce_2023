@@ -87,6 +87,13 @@ section.login_form{
   background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
 }
 
+/* -------user-dashboard----------- */
+section.user-dashboard {
+  background-color: #FBDA61;
+  background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+}
+
+
 /* --------HeroBanner---------- */
 .left-Arrow {
   position: absolute;
@@ -132,6 +139,28 @@ section.login_form{
   position: absolute;
   top: 0;
   right: 0px;
+}
+
+/* ---------ALL-category------------- */
+section.section_all_category {
+  background: linear-gradient(90deg, #00BCD4DE 0%, #0C55A745 100%);
+
+}
+.categoryies {
+  padding: 40px 0px;
+  background: linear-gradient(90deg, rgba(255, 255, 0, 1) 0%, rgba(238, 130, 238, 1) 100%);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section.section_all_category a.allcatgory {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 700;
+  font-family: serif;
+  text-transform: capitalize;
 }
 
 /* -----cart-section----------- */
